@@ -1,0 +1,16 @@
+This is a <b>text</b> file <br/>
+This is a second Line! <br/>
+<font size="60" color="red">This is some text!</font>
+<body><h1>Heading Text</h1><p>This tutorial
+            explains how to display
+            <strong>HTML </strong>text in android text view.&nbsp;</p>
+            <img src="http://shopinsurancecanada.ca/userfiles/images/blog/entries/google_logo.jpg">
+            <blockquote>
+            <p style="text-indent:5em;">
+            public static void main(String args) <br/>
+            {<br/>
+                System.out.println("Hello World");<br/>
+            }<br/>
+            </p>
+            </blockquote>
+</body>
