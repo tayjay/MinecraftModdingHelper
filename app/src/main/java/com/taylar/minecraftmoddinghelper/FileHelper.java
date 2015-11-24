@@ -2,6 +2,8 @@ package com.taylar.minecraftmoddinghelper;
 
 import android.text.Html;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +22,11 @@ import java.util.List;
  */
 public class FileHelper {
 
+    /**
+     * Read the inputStream as a plain text file.
+     * @param inputStream   Text file
+     * @return              The final string that is built.
+     */
     public static String readFileClean(InputStream inputStream)
     {
 
@@ -38,7 +45,12 @@ public class FileHelper {
         return total.toString();
     }
 
-    public static String readFileAndBuild(View view,InputStream inputStream)
+    /**
+     * Read the file and evaluate the tags.
+     * @param view          View to reference
+     * @param inputStream   File to read from
+     */
+    public static void readFileAndBuild(View view,InputStream inputStream)
     {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
@@ -56,13 +68,17 @@ public class FileHelper {
                     {
                         makeTextView(view,line,bufferedReader);
                     }
+                    else if(getCommand(line)==Commands.WEBVIEW)
+                    {
+                        makeWebView(view,line);
+                    }
                 }
             }
 
         }
         catch(IOException e)
         {
-            return null;
+            return;
         }
 
 
@@ -83,9 +99,14 @@ public class FileHelper {
 
 
 
-        return null;
+        return;
     }
 
+    /**
+     * Determine if there is something to interpret
+     * @param line  String to check
+     * @return      The id of command to run from the Commands class.
+     */
     private static int getCommand(String line)
     {
         if(line.contains("<TextView"))
@@ -96,9 +117,19 @@ public class FileHelper {
         {
             return Commands.BUTTON;
         }
+        else if(line.contains("<WebView"))
+        {
+            return Commands.WEBVIEW;
+        }
         return 0;
     }
 
+    /**
+     * Make a button on the screen from the page's text file.
+     * <Button id=buttonIdNumber, text=DisplayText, onClick=onClick/>
+     * @param v     View to reference
+     * @param line  The String to be evaluated and make the button
+     */
     public static void makeButton(View v, String line)
     {
         String[] arguments = getArguments(line);
@@ -121,6 +152,8 @@ public class FileHelper {
             else if(argumentName.toString().equals("onClick"))
             {
                 button.setOnClickListener(OnClickHandler.INSTANCE);
+                button.setHint(argumentValue);
+                //OnClickHandler.url=argumentValue;
             }
 
         }
@@ -128,6 +161,14 @@ public class FileHelper {
     }
 
 
+    /**
+     * Make a TextView to add to the screen. It will be formatted to the text tag's specifications.
+     *
+     * <TextView id=TextViewIdInt, fontSize=FontSizeDouble/>
+     * @param v                 View to reference.
+     * @param line              String to evaluate
+     * @param bufferedReader    Reader to populate the textview
+     */
     public static void makeTextView(View v,String line, BufferedReader bufferedReader)
     {
         TextView tv = new TextView(v.getContext());
@@ -173,14 +214,45 @@ public class FileHelper {
 
     }
 
+    public static void makeWebView(View v, String line)
+    {
+        WebView wv = new WebView(v.getContext());
+        LinearLayout linearLayout = (LinearLayout) v;
+        String[] arguments = getArguments(line);
+        String argumentName;
+        String argumentValue;
+        for(String argument:arguments)
+        {
+            argumentName = argument.substring(0,argument.indexOf("="));
+            argumentValue= argument.substring(argument.indexOf("=")+1);
+            if(argumentName.equals("id"))
+            {
+                wv.setId(Integer.parseInt(argumentValue));
+            }
+            else if(argumentValue.equals("url"))
+            {
+                wv.setWebViewClient(new WebViewClient());
+                wv.loadUrl(argumentValue);
+            }
+        }
+        //linearLayout.removeAllViews();
+        linearLayout.addView(wv);
+    }
 
 
+    /**
+     *
+     * @param line  Expression to get arguments from
+     * @return
+     */
     public static String[] getArguments(String line)
     {
         String temp1;
         temp1 = line.replace("<TextView ","");
         line = temp1;
         temp1 = line.replace("<Button ","");
+        line = temp1;
+        temp1 = line.replace("<WebView ","");
         line = temp1;
         temp1 = line.replace("/>","");
         line = temp1;
@@ -210,6 +282,7 @@ public class FileHelper {
             }
             array[i].replace("<TextView ","");
             array[i].replace("<Button ", "");
+            array[i].replace("<WebView ", "");
             array[i].replace("/>", "");
             array[i].replaceAll("\"", "");
         }

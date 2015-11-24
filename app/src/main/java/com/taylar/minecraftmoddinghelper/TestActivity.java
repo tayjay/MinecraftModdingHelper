@@ -1,5 +1,7 @@
 package com.taylar.minecraftmoddinghelper;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -74,6 +76,8 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         Button button = (Button) v;
         button.setText("Hello");
         Toast.makeText(this,"Is the id",Toast.LENGTH_LONG);
+        Intent intent = new Intent(this, WebActivity.class);
+        startActivity(intent);
     }
 
 
