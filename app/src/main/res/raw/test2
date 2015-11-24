@@ -1,0 +1,57 @@
+<TextView id=27, fontSize=16/>
+<h1> Introduction </h1>
+
+<p>
+<h2>Java</h2>
+Welcome to my app. Through these lessons you will learn how to make your own mod for the game Minecraft. As a start; you will need to learn how to program in Java.
+Minecraft is programed in java, so you will be using it to mod. For some lessons on starting out check out these links:<br/>
+<Button id=25, text=First Site, onClick="onClick"/>
+<Button id=26, text=Second Site, onClick="onClick"/>
+<Button id=27, text=Third Site, onClick="onClick"/>
+<Button id=28, text=Fourth Site, onClick="onClick"/>
+<Button id=29, text=Fifth Site, onClick="onClick"/>
+<TextView id=27/>
+<br/>
+<br/>
+These will teach you to program basic java, its a good start. In order to be a good modder you will need some more advanced techneiques.
+</p>
+<p>
+Some o things you will need to know before going into this are
+<br/>
+Classes<br/>
+Inheritance<br/>
+Polymorphism<br/>
+LIST MORE<br/>
+</p>
+<p>
+These techniques are very important, and will be used a lot though these lessons.
+</p>
+
+<h2>Minecraft</h2>
+<p>
+For those who do not know. Minecraft is a Java based game made by Notch, and is currently maintained by Mojang and Microsoft.
+It is one of the most popular games on the market and has a massive modding community.
+These tutorials will be looking at Minecraft Version 1.7.10. Other versions of the game are also being modding, the other most popular is version 1.6.4 and now 1.8.
+We will discuss the version differences when we come to the topics that they differ in.
+</p>
+
+<h2>Starting tips</h2>
+<p>
+You will be able to find many tutorials online, but it is easy to be lost in the sea of knowledge and be discouraged.
+This is the main reason that I did not persue this in the past, and I am regret not getting into this sooner.
+Modding Minecraft doesnt just allow you to add and make changes to the game as you see fit, it also gives you a strong understanding of Java and the way that it works.
+For example, making a simple item at the start will teach you how inheritance works, and registering them to the game is an example of polymorphism.
+Later on you will learn about Java reflection, it is a topic that is usially avoided but is very handy when modding(More on this in a later lesson).
+My biggest tip for you is to take your time, dont try to learn all this in one day. It is the other reason I gave up on modding in the past.
+There is a lot to learn. Just remember this as you go though the following lessons. If you rush into this, you may get discouraged and reluctant to continue.
+However, know that when you are done, you will have the tools to make any mod that you can think of. Go onto the next lesson so we can start to mod.
+</p>
+
+<Button id=22, text=Next Page, onClick="onClick"/>
+<Button id=22, text=Previous Page, onClick="onClick"/>
+
+<TextView id=27, fontSize=10/>
+<h2>Copyright*</h2>
+<p>
+This work is property of Taylar Masson.
+</p>

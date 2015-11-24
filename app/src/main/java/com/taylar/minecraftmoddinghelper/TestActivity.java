@@ -6,43 +6,46 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class TestActivity extends AppCompatActivity {
+public class TestActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+        int fileID = R.raw.test2;
 
-        TextView tv = (TextView) findViewById(R.id.textView);
-        //tv.setMovementMethod(LinkMovementMethod.getInstance());
-        tv.setText(Html.fromHtml(readFile(R.raw.test)));
+        Button button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(this);
+
+        //WebView mbrowser = (WebView) findViewById(R.id.webView); //get the WebView from the layout XML
+        //TextView tv = (TextView) findViewById(R.id.textView);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.verticalLayout);
+        FileHelper.readFileAndBuild(linearLayout,getResources().openRawResource(fileID));
+        //tv.setText(Html.fromHtml(FileHelper.readFileClean(getResources().openRawResource(fileID))));
+        //File file = new File("/assets/"+"index.html");
+        //String filepath = "file:///android_assets/res/assets/index.html";
+        //mbrowser.setWebViewClient(new WebViewClient());
+        //mbrowser.loadUrl("http://www.github.com/"); //set the HTML
     }
 
-    private String readFile(int id)
-    {
-        InputStream inputStream = getResources().openRawResource(id); //R.raw.test
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        StringBuilder total = new StringBuilder();
-        String line;
-        try {
-            while ((line = bufferedReader.readLine()) != null) {
-                total.append(line);
-            }
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-        return total.toString();
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,4 +68,13 @@ public class TestActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void onClick(View v)
+    {
+        Button button = (Button) v;
+        button.setText("Hello");
+        Toast.makeText(this,"Is the id",Toast.LENGTH_LONG);
+    }
+
+
 }
