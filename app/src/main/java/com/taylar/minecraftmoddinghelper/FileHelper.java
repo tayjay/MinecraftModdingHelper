@@ -1,10 +1,17 @@
 package com.taylar.minecraftmoddinghelper;
 
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -72,6 +79,14 @@ public class FileHelper {
                     {
                         makeWebView(view,line);
                     }
+                    else if(getCommand(line)==Commands.BACKGROUND)
+                    {
+                        setBackground(view,line);
+                    }
+                    else if(getCommand(line)==Commands.IMAGE)
+                    {
+                        makeImage(view,line);
+                    }
                 }
             }
 
@@ -102,6 +117,9 @@ public class FileHelper {
         return;
     }
 
+
+
+
     /**
      * Determine if there is something to interpret
      * @param line  String to check
@@ -121,7 +139,44 @@ public class FileHelper {
         {
             return Commands.WEBVIEW;
         }
+        else if(line.contains("<Background"))
+        {
+            return Commands.BACKGROUND;
+        }
+        else if(line.contains("<Image"))
+        {
+            return Commands.IMAGE;
+        }
         return 0;
+    }
+
+    private static void setBackground(View view, String line) {
+        LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.verticalLayout);
+        linearLayout.setBackgroundColor(Color.GRAY);
+    }
+
+    private static void makeImage(View view, String line) {
+        String[] arguments = getArguments(line);
+        ImageView imageView = new ImageView(view.getContext());
+        LinearLayout linearLayout = (LinearLayout) view;
+        //imageView.setPadding(-10,-100,-10,-100);
+        imageView.setImageResource(Reference.ImageID.get(""));
+        for(String argument: arguments)
+        {
+            String argumentName= argument.substring(0,argument.indexOf("="));
+            String argumentValue= argument.substring(argument.indexOf("=")+1);
+            argumentValue.replace("\"", "");
+
+            if(argumentName.equals("src"))
+            {
+                imageView.setImageResource(Reference.ImageID.get(argumentValue));
+            }
+        }
+        //imageView.setPadding((int)(imageView.getScaleX()*-0.7),(int)(imageView.getScaleY()),(int)(imageView.getScaleX()*-0.7),(int)(imageView.getScaleY()*-0.7));
+
+        //imageView.setImageResource(R.drawable.squares);
+
+        linearLayout.addView(imageView);
     }
 
     /**
@@ -134,6 +189,8 @@ public class FileHelper {
     {
         String[] arguments = getArguments(line);
         Button button = new Button(v.getContext());
+        button.setMaxHeight(20);
+        button.animate();
         LinearLayout linearLayout = (LinearLayout) v;
         for(String argument:arguments)
         {
@@ -154,6 +211,14 @@ public class FileHelper {
                 button.setOnClickListener(OnClickHandler.INSTANCE);
                 button.setHint(argumentValue);
                 //OnClickHandler.url=argumentValue;
+            }
+            else if(argumentName.toString().equals("textColor"))
+            {
+                button.setTextColor(Color.parseColor(argumentValue));
+            }
+            else if(argumentName.toString().equals("backgroundColor"))
+            {
+                button.setBackgroundColor(Color.parseColor(argumentValue));
             }
 
         }
@@ -256,6 +321,8 @@ public class FileHelper {
         line = temp1;
         temp1 = line.replace("/>","");
         line = temp1;
+        temp1 = line.replace("<Image ","");
+        line = temp1;
         String[] array = line.split(",");
         /* Clean up the elements of the Array */
         for(int i=0;i<array.length;i++)
@@ -283,6 +350,7 @@ public class FileHelper {
             array[i].replace("<TextView ","");
             array[i].replace("<Button ", "");
             array[i].replace("<WebView ", "");
+            array[i].replace("Image ","");
             array[i].replace("/>", "");
             array[i].replaceAll("\"", "");
         }
@@ -297,6 +365,8 @@ public class FileHelper {
         public static final int TEXTVIEW=3;
         public static final int BUTTON=4;
         public static final int WEBVIEW=5;
+        public static final int BACKGROUND=6;
+        public static final int IMAGE=7;
     }
 }
 

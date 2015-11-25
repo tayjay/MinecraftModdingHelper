@@ -31,7 +31,7 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        int fileID = R.raw.test2;
+        int fileID = R.raw.getting_started;
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(this);
@@ -73,11 +73,13 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
 
     public void onClick(View v)
     {
+        /*
         Button button = (Button) v;
         button.setText("Hello");
         Toast.makeText(this,"Is the id",Toast.LENGTH_LONG);
         Intent intent = new Intent(this, WebActivity.class);
         startActivity(intent);
+        */
     }
 
 
