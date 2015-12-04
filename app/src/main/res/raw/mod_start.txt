@@ -1,0 +1,36 @@
+<Title text=Strating Mod/>
+<TextView id=30, fontSize=16/>
+<h1>File Structure</h1>
+<p>
+Now that we have our project set up, we can make the structure for our mod.
+There are many ways to structure the files, but we will follow Pahimar's and Minemaarten's example.
+<br/>
+These are the folders you will need to have, to start, they will all be in your src folder of your forge directory.
+We will follow the formal naming convention for the folder structure. When making a project, it is proper to name your structure as:
+</br>
+COM.YOURNAME.YOURPROJECT
+<br/>
+So for me, I would name mine "com.taylar.tutorialMod".
+<br/>
+<h2>The basic folders</h2>
+For a basic mod, you will need a few folders in this directory.
+<br/>1. Make a new folder called "main".
+<br/>2. Inside "main", make 2 folders "java" and "resources".
+<br/>3. At this point, we diverge between the 2 folders. An illistration will show this best
+<Button id=51, text=Show Image, type=show, onClick=52/>
+<Image id=52, src=file_struc/>
+<TextView id=30, fontSize=16/>
+
+<h2>So what does this mean?</h2>
+So why do we follow this file structure? This is the way that forge will look though your mod later on.
+For our current understanding, these are the most important things to know.
+<br/>The structure within the "java" folder is the same as the project name that we descibed earlier.
+<br/>At the bottom of the java tree. This is where all of your java files and folders will be saved.
+<br/>In the "resources" folder. This is where you will save all the assets for your mod, textures and language files.
+<br/>
+<Button id=9000, text=Next Page, type=page, onClick=first_files/>
+<Button id=9001, text=Back, type=page, onClick=forge/>
+
+
+<br/>
+

@@ -1,0 +1,12 @@
+<Title text=NBT Data/>
+
+<TextView id=0, fontSize=16/>
+<h1>NBT Data</h1>
+Named Binary Tags are the way that Minecraft saves data to players, itemstacks, tile entities, the world, and other custom data.
+NBT is stored in "Binary Pairs". When information is stored, the data is paired with a tag/name that you define. So if you have an integer to store coins, you would set an integer 
+tag, give it the tag "coins", and store the int into it. Later you will be able to get the data with the tag you gave it.
+<h1>Using NBT</h1>
+Working with NBT can take up a lot of space in your methods, so we will make a helper class to store all of the functions we want to preform.
+We will call it "NBTHelper.java". In our java source folder. Make a new folder inside called "util". Inside there make the NBTHelper.java file.
+<Button id=9000, text=Next/>
+<Button id=9001, text=Back/>

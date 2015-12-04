@@ -1,0 +1,42 @@
+<Title text=Reference/>
+<TextView id=10, fontSize=16/>
+<h1>Before we start</h1>
+<Button id=1, text=Getting Started, type=page, onClick=getting_started/>
+<Button id=2, text=Forge, type=page, onClick=forge/>
+
+<TextView id=10, fontSize=16/>
+<h1>Starting Out</h1>
+<Button id=4, text=Starting Our Mod, type=page, onClick=mod_start/>
+<Button id=3, text=First Files, type=page, onClick=first_files/>
+<Button id=0, text=Assets and mcmodinfo File/>
+<Button id=0, text=Reference File/>
+<Button id=0, text=Utilities and Helpers/>
+
+<TextView id=10, fontSize=16/>
+<h1>Making a real mod</h1>
+<Button id=0, text=Proxies/>
+<Button id=0, text=Making Items/>
+<Button id=0, text=Making Blocks/>
+<Button id=0, text=Registers/>
+<Button id=0, text=Items that do things/>
+<Button id=0, text=ItemStacks/>
+<Button id=0, text=NBT Data, type=page, onClick=nbt_data/>
+<Button id=0, text=Tile Entities/>
+<Button id=0, text=Events/>
+<Button id=0, text=Recipies/>
+
+<TextView id=10, fontSize=16/>
+<h1>Advanced Tips</h1>
+<Button id=0, text=More On Helpers/>
+<Button id=0, text=More On NBT/>
+<Button id=0, text=Networking/Packets/>
+<Button id=0, text=Extended Properties/>
+<Button id=0, text=Mobs/>
+<Button id=0, text=Custom Renderer/>
+<Button id=0, text=Reflection/>
+
+<TextView id=10, fontSize=16/>
+<h1>Beyond</h1>
+<Button id=0, text=Minecraft Source code/>
+<Button id=0, text=Github/>
+<Button id=0, text=More Tutorials/>

@@ -1,0 +1,15 @@
+<Title text=First Files/>
+<TextView id=1, fontSize=16/>
+<h1>First Files</h1>
+<Button id=2, text=Pahimar Mod Class, type=web, onClick=https://www.youtube.com/watch?v=lqb4WJEEIGI&index=3&list=PLQPiZYWovwmnZlgvbHCbz6TefIgeEiVcj/>
+
+<TextView id=3, fontSize=16/>
+Now that we have our file structure, we can start making our mod.
+First, You will need to make your base mod file. In your IDE. Go to your main/java/com/YOURNAME/MODNAME/ folder.
+This is where your java files will go. In this folder, make a new java file named after your Mod's name.
+For mine I will call it "TutorialMod.java". 
+Now you have your first file in your mod.
+<Button id=4, text=Show Image, type=show, onClick=5/>
+<Image id=5, src=non/>
+<Button id=9000, text=Next/>
+<Button id=9001, text=Back, type=page, onClick=mod_start/>

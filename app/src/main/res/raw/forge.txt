@@ -1,0 +1,33 @@
+<Title text=Forge/>
+<TextView id=30, fontSize=16/>
+
+<h1>Minecraft Forge</h1>
+<p>
+Forge is the base for most mods for Minecraft. It gives a platform for people to build off of. By default, Minecraft's code is "Obfiscated" or encrypted to protect their property. Forge deobfiscates the Minecraft
+source code to allow people to hook into its functions, and write their own mods.
+
+<Button id=31, text=Minecraft Forge, type=web, onClick=http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.7.10.html/>
+
+<TextView id=30, fontSize=16/>
+<h2>Building Forge</h2>
+<p>
+In order to start using forge, you need to build the project for it. This will download all of the Minecraft files from their servers. Forge is not allowed to simply allow people to download 
+their property so they make it only available through a gradle build script.<br/>
+Here is a quick tutorial on getting that set up.
+</p>
+<Button id=51, text=Forge Gradle, type=web, onClick=http://www.minecraftforge.net/wiki/Installation/Source/>
+<Button id=52, text=Youtube Gradle Tutorial, type=web, onClick=https://www.youtube.com/watch?v=9-gIMtN027c&list=PLQPiZYWovwmnZlgvbHCbz6TefIgeEiVcj&index=2/>
+
+<TextView id=30, fontSize=16/>
+<p>
+In pahimar's github tutorial on the previous page. He showed you how to set up your repository.
+I recommend grabbing that repository and placing it on your computer, place all of the forge files in there, then run your scripts.
+With that done, you will have a Minecraft Forge project ready for version control.
+</p>
+
+<h1>What's next?</h1>
+<p>
+In the next page, we will start making our mod. Starting with our basic mod file.
+<Button id=9000, text=Next, type=page, onClick=mod_start/>
+<Button id=9001, text=Back, type=page, onClick=getting_started/>
+<br/>

@@ -1,5 +1,6 @@
 
 <TextView id=27, fontSize=16/>
+
 <h1> Introduction </h1>
 
 <p>
@@ -9,13 +10,18 @@ Welcome to my app. Through these lessons you will learn how to make your own mod
 <font color=#cc0029>As a start; you will need to learn how to program in Java.</font>
  Minecraft is programed in java, so you will be using it to mod. For some lessons on starting out check out these links:<br/>
 
-<Button id=25, textColor=#cc0029, backgroundColor=#aabbcc, text=TheNewBoston Basic Java, onClick=https://www.youtube.com/playlist?list=PLFE2CE09D83EE3E28/>
-<Button id=26, text=TheNewBoston Intermediate Java, onClick=https://www.youtube.com/playlist?list=PL27BCE863B6A864E3/>
-<Button id=27, text=Learn Java Online, onClick=http://www.learnjavaonline.org//>
-<Image src=codeTest/>
+ 
+<Button id=25, textColor=#cc0029, backgroundColor=#aabbcc, text=TheNewBoston Basic Java, type=web, onClick=https://www.youtube.com/playlist?list=PLFE2CE09D83EE3E28/>
+<Button id=26, text=TheNewBoston Intermediate Java, type=web, onClick=https://www.youtube.com/playlist?list=PL27BCE863B6A864E3/>
+<Button id=27, text=Learn Java Online, type=web, onClick=http://www.learnjavaonline.org//>
+<TextView/>
+<br/><br/>
+<Button id=28, text=Show Code, type=show, onClick=32/>
+
+<Image id=32, src=code_test/>
+
 <TextView id=27, fontSize=15/>
-<br/>
-<br/>
+
 These will teach you to program basic java, its a good start. In order to be a good modder you will need some more advanced techneiques.
 </p>
 <p>
@@ -50,10 +56,11 @@ There is a lot to learn. Just remember this as you go though the following lesso
 However, know that when you are done, you will have the tools to make any mod that you can think of. Go onto the next lesson so we can start to mod.
 </p>
 
-<Button id=22, text=Next Page, onClick=https://github.com/OreCruncher/ThermalRecycling/blob/master/src/main/java/org/blockartistry/mod/ThermalRecycling/machines/MachineBase.java?mobile=1/>
-<Button id=23, text=Previous Page, onClick=http://www.google.com//>
+<Button id=22, text=Next Page, type=page, onClick=getting_started/>
+<Button id=23, text=Previous Page, type=page, onClick=test/>
 
 <TextView id=27, fontSize=10/>
+
 <h2>Copyright*</h2>
 <p>
 This is some random text I decided to add to the bottom of the screen. It serves no purpose what so ever and you can stop reading this any time.

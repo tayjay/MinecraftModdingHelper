@@ -1,0 +1,48 @@
+<Title text=Getting Started/>
+<TextView id=30, fontSize=16/>
+
+<h1>Getting Started</h1>
+<p>
+<h1> Introduction </h1>
+
+<p>
+<h2 >Java</h2>
+Welcome to my app. Through these lessons you will learn how to make your own mod for the game Minecraft.
+<font color=#cc0029>As a start; you will need to learn how to program in Java.</font>
+ Minecraft is programed in java, so you will be using it to mod. For some lessons on starting out check out these links:<br/>
+
+ 
+<Button id=25, text=TheNewBoston Basic Java, type=web, onClick=https://www.youtube.com/playlist?list=PLFE2CE09D83EE3E28/>
+<Button id=26, text=TheNewBoston Intermediate Java, type=web, onClick=https://www.youtube.com/playlist?list=PL27BCE863B6A864E3/>
+<Button id=27, text=Learn Java Online, type=web, onClick=http://www.learnjavaonline.org//>
+
+<TextView id=36, fontSize=16/>
+<h1>The IDE</h1>
+An IDE (Integrated Development Environment) is where you will be writing your code. I personally prefer Intellij and will be using it for these tutorials.
+In Pahimar's video above, he explains how to install Intellij. Alternativly, you caan use any other IDE, another popular one is Eclipse, there are many tutorials online on getting this,
+but it is not in the scope of this tutorial.
+</p>
+
+Now we can begin to mod. To start you will need to get Minecraft Forge. This is the base for most mods. By default, Minecraft is "obfiscated" or encrypted code. Forge deobfiscates most of the code that you will use.
+Without this, no one would be able to understand any of their code.
+</p>
+
+<TextView id=31, fontSize=16/>
+
+<p>
+You will want to get the "src" version of Forge. All of the others are used for playing the game. Since you will be programming in Forge, you will need it to play your mod.
+</p>
+
+<h1>Github</h1>
+<p>
+Github is a version control platform that is standard in the programming industry. It will be extremely useful and benificial if you get into it early one.
+Pahimar does a good tutorial on getting started with this, along with setting up a basic forge environment:
+
+<Button id=32, text=Pahimar Github, type=web, onClick=https://www.youtube.com/watch?v=e6v5egIkThk&list=PLQPiZYWovwmnZlgvbHCbz6TefIgeEiVcj&index=1/>
+
+<TextView id=33, fontSize=16/>
+
+With Github integrated with you project, you will be able to update and reload your project if you ever need to go back.
+
+<Button id=9000, text=Next, type=page, onClick=forge/>
+<Button id=9001, text=Back, type=page, onClick=home/>

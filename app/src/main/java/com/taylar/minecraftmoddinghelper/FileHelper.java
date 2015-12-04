@@ -1,23 +1,32 @@
 package com.taylar.minecraftmoddinghelper;
 
+import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.text.Html;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import junit.framework.Test;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -61,31 +70,37 @@ public class FileHelper {
     {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
+        LinearLayout linearLayout = (LinearLayout) view;
+        linearLayout.removeAllViews();
         try
         {
             while((line = bufferedReader.readLine())!=null)
             {
                 if(line!=null) {
-
-                    if (getCommand(line) == Commands.BUTTON)
+                    int command = getCommand(line);
+                    if (command == Commands.BUTTON)
                     {
                         makeButton(view,line);
                     }
-                    else if(getCommand(line)==Commands.TEXTVIEW)
+                    else if(command==Commands.TEXTVIEW)
                     {
                         makeTextView(view,line,bufferedReader);
                     }
-                    else if(getCommand(line)==Commands.WEBVIEW)
+                    else if(command==Commands.WEBVIEW)
                     {
                         makeWebView(view,line);
                     }
-                    else if(getCommand(line)==Commands.BACKGROUND)
+                    else if(command==Commands.BACKGROUND)
                     {
                         setBackground(view,line);
                     }
-                    else if(getCommand(line)==Commands.IMAGE)
+                    else if(command==Commands.IMAGE)
                     {
                         makeImage(view,line);
+                    }
+                    else if(command==Commands.TITLE)
+                    {
+                        setTitle(view,line);
                     }
                 }
             }
@@ -115,6 +130,34 @@ public class FileHelper {
 
 
         return;
+    }
+
+    public static String[] getAllInputStreamInRaw(Context context)
+    {
+        AssetManager assetManager = context.getAssets();
+        String[] files = null;
+        try {
+            files = assetManager.list("raw/");
+        }catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        File folder = new File("android.resource://com.taylar.minecraftmoddinghelper/raw/");
+        File[] filesInFolder = folder.listFiles();
+        /*
+        InputStream[] inputStreams = new InputStream[filesInFolder.length];
+        for(int i = 0;i<filesInFolder.length;i++)
+        {
+            try {
+                inputStreams[i] = new FileInputStream(filesInFolder[i]);
+            }catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        */
+        return files;
     }
 
 
@@ -147,6 +190,10 @@ public class FileHelper {
         {
             return Commands.IMAGE;
         }
+        else if(line.contains("<Title"))
+        {
+            return Commands.TITLE;
+        }
         return 0;
     }
 
@@ -159,6 +206,9 @@ public class FileHelper {
         String[] arguments = getArguments(line);
         ImageView imageView = new ImageView(view.getContext());
         LinearLayout linearLayout = (LinearLayout) view;
+        Drawable img;
+        int scrWidth  = TestActivity.getInstance().getWindowManager().getDefaultDisplay().getWidth();
+        int scrHeight = TestActivity.getInstance().getWindowManager().getDefaultDisplay().getHeight();
         //imageView.setPadding(-10,-100,-10,-100);
         imageView.setImageResource(Reference.ImageID.get(""));
         for(String argument: arguments)
@@ -167,15 +217,28 @@ public class FileHelper {
             String argumentValue= argument.substring(argument.indexOf("=")+1);
             argumentValue.replace("\"", "");
 
-            if(argumentName.equals("src"))
+            if(argumentName.equals("id"))
             {
-                imageView.setImageResource(Reference.ImageID.get(argumentValue));
+                imageView.setId(Integer.parseInt(argumentValue));
+            }
+            else if(argumentName.equals("src"))
+            {
+                img = linearLayout.getContext().getResources().getDrawable(linearLayout.getContext().getResources().getIdentifier("drawable/" + argumentValue, "drawable", linearLayout.getContext().getPackageName()), linearLayout.getContext().getTheme());
+                //imageView.getContext().getResources().getIdentifier("drawable/"+argumentValue,
+                        //"drawable", linearLayout.getContext().getPackageName());
+                imageView.setImageDrawable(img);
+                imageView.setPadding(0, (int)((scrHeight-img.getMinimumHeight())*-0.1),0,(int)((scrHeight-img.getMinimumHeight())*-0.1));//-0.2 y scale
             }
         }
         //imageView.setPadding((int)(imageView.getScaleX()*-0.7),(int)(imageView.getScaleY()),(int)(imageView.getScaleX()*-0.7),(int)(imageView.getScaleY()*-0.7));
 
         //imageView.setImageResource(R.drawable.squares);
 
+        imageView.setVisibility(View.VISIBLE);
+        imageView.setVerticalScrollBarEnabled(true);
+        imageView.canScrollVertically(2);
+        imageView.setPadding(-2000, -2000, -2000, -2000);
+        imageView.setCropToPadding(true);
         linearLayout.addView(imageView);
     }
 
@@ -190,7 +253,7 @@ public class FileHelper {
         String[] arguments = getArguments(line);
         Button button = new Button(v.getContext());
         button.setMaxHeight(20);
-        button.animate();
+        //button.animate();
         LinearLayout linearLayout = (LinearLayout) v;
         for(String argument:arguments)
         {
@@ -208,7 +271,7 @@ public class FileHelper {
             }
             else if(argumentName.toString().equals("onClick"))
             {
-                button.setOnClickListener(OnClickHandler.INSTANCE);
+                //button.setOnClickListener(OnClickHandler.INSTANCE.pageClick(v));
                 button.setHint(argumentValue);
                 //OnClickHandler.url=argumentValue;
             }
@@ -219,6 +282,21 @@ public class FileHelper {
             else if(argumentName.toString().equals("backgroundColor"))
             {
                 button.setBackgroundColor(Color.parseColor(argumentValue));
+            }
+            else if(argumentName.equals("type"))
+            {
+                if(argumentValue.equals("web"))
+                {
+                    button.setOnClickListener(OnClickHandler.ClickListeners.webClick(v));
+                }
+                else if(argumentValue.equals("page"))
+                {
+                    button.setOnClickListener(OnClickHandler.ClickListeners.pageClick(v));
+                }
+                else if(argumentValue.equals("show"))
+                {
+                    button.setOnClickListener(OnClickHandler.ClickListeners.showClick(v));
+                }
             }
 
         }
@@ -246,16 +324,18 @@ public class FileHelper {
 
         for(String argument:arguments)
         {
-            argumentName= argument.substring(0,argument.indexOf("="));
-            argumentValue= argument.substring(argument.indexOf("=")+1);
-            argumentValue.replace("\"", "");
-            if(argumentName.equals("id"))
+            try {
+                argumentName = argument.substring(0, argument.indexOf("="));
+                argumentValue = argument.substring(argument.indexOf("=") + 1);
+                argumentValue.replace("\"", "");
+                if (argumentName.equals("id")) {
+                    tv.setId(Integer.parseInt(argumentValue));
+                } else if (argumentName.equals("fontSize")) {
+                    tv.setTextSize(Float.parseFloat(argumentValue));
+                }
+            }catch (StringIndexOutOfBoundsException e)
             {
-                tv.setId(Integer.parseInt(argumentValue));
-            }
-            else if(argumentName.equals("fontSize"))
-            {
-                tv.setTextSize(Float.parseFloat(argumentValue));
+
             }
         }
 
@@ -304,6 +384,26 @@ public class FileHelper {
         linearLayout.addView(wv);
     }
 
+    public static void setTitle(View v, String line)
+    {
+        LinearLayout linearLayout = (LinearLayout) v;
+        ScrollView scrollView = (ScrollView) linearLayout.getParent();
+        LinearLayout parent = (LinearLayout) scrollView.getParent();
+        TextView titleBar = (TextView) parent.findViewById(R.id.titleBar);
+        String[] arguments = getArguments(line);
+        String argumentName;
+        String argumentValue;
+        for(String argument: arguments)
+        {
+            argumentName = argument.substring(0,argument.indexOf("="));
+            argumentValue= argument.substring(argument.indexOf("=")+1);
+            if(argumentName.equals("text"))
+            {
+                titleBar.setText(argumentValue);
+            }
+        }
+    }
+
 
     /**
      *
@@ -322,6 +422,8 @@ public class FileHelper {
         temp1 = line.replace("/>","");
         line = temp1;
         temp1 = line.replace("<Image ","");
+        line = temp1;
+        temp1 = line.replace("<Title ","");
         line = temp1;
         String[] array = line.split(",");
         /* Clean up the elements of the Array */
@@ -367,6 +469,8 @@ public class FileHelper {
         public static final int WEBVIEW=5;
         public static final int BACKGROUND=6;
         public static final int IMAGE=7;
+        public static final int TITLE=8;
+
     }
 }
 

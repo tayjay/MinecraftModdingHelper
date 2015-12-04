@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,7 +42,7 @@ public class WebActivity extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient());
 
         webView.loadUrl(newString);
-        urlBox.setText(webView.getUrl().substring(0,webView.getUrl().indexOf('/',8)+1));
+        urlBox.setText(webView.getUrl().substring(0, webView.getUrl().indexOf('/', 8) + 1));
 
     }
 
@@ -90,5 +91,23 @@ public class WebActivity extends AppCompatActivity {
                 webView.goBack();
                 break;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        WebView mWebView = (WebView) findViewById(R.id.webView);
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_BACK:
+                    if (mWebView.canGoBack()) {
+                        mWebView.goBack();
+                    } else {
+                        finish();
+                    }
+                    return true;
+            }
+
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

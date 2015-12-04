@@ -1,3 +1,5 @@
+<TextView/>
+
 This is a <b>text</b> file <br/>
 This is a second Line! <br/>
 <font size="60" color="red">This is some text!</font>
@@ -14,3 +16,5 @@ This is a second Line! <br/>
             </p>
             </blockquote>
 </body>
+
+<Button id=40, text=Next, type=page, onClick=test2/>
