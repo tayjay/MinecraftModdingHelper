@@ -44,7 +44,7 @@ Note 2: The file will only bind to your mod if the "modid" is EXACTLY the same a
 <br/>
 Note 3: Make sure this file in in the right place. If it is anywhere else, it will not find it.
 
-<Button id=9000, text=Next, type=page/>
+<Button id=9000, text=Next, type=page, onClick=reference_file/>
 <Button id=9001, text=Back, type=page, onClick=first_files/>
 
 

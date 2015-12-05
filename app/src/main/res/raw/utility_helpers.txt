@@ -1,0 +1,20 @@
+<Title text=Utilities and Helpers/>
+<TextView id=10, fontSize=16/>
+<h1>What are they?</h1>
+Utility and Helper classes are used to perform functions that are called by many parts of the mod.<br/>
+Say you want to write an error message to the console, Forge Mod Loader has a function to do this,
+ but it takes a lot of variables that you dont want to call each time you need to write a message. 
+<br/><br/>That is why we have helper classes, they take a function and make it more easily accessible.<br/>
+Here is an example Helper for working with the log file and console. Yo can find the code on Pahimar's tutorial.
+
+<Button id=1, text=Show Code, type=show, onClick=51/>
+<Image id=51, src=log_helper/>
+
+<TextView id=10, fontSize=16/>
+
+<Button id=10, text=Pahimar Helper, type=web, onClick=https://www.youtube.com/watch?v=oVq5kslZJc4&list=PLQPiZYWovwmnZlgvbHCbz6TefIgeEiVcj&index=5/>
+
+<TextView id=10, fontSize=16/>
+
+<Button id=9000, text=Next, type=page, onClick=proxies/>
+<Button id=9001, text=Back, type=page, onClick=reference_file/>

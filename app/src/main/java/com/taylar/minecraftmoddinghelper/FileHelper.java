@@ -11,6 +11,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
+import android.support.v4.content.res.ResourcesCompat;
 import android.text.Html;
 import android.view.Display;
 import android.view.Gravity;
@@ -160,8 +161,8 @@ public class FileHelper {
         ImageView imageView = new ImageView(view.getContext());
         LinearLayout linearLayout = (LinearLayout) view;
         Drawable img;
-        int scrWidth  = TestActivity.getInstance().getWindowManager().getDefaultDisplay().getWidth();
-        int scrHeight = TestActivity.getInstance().getWindowManager().getDefaultDisplay().getHeight();
+        //int scrWidth  = TestActivity.getInstance().getWindowManager().getDefaultDisplay().getWidth();
+        //int scrHeight = TestActivity.getInstance().getWindowManager().getDefaultDisplay().getHeight();
         imageView.setImageResource(Reference.ImageID.get(""));
         for(String argument: arguments)
         {
@@ -177,7 +178,7 @@ public class FileHelper {
             {
                 img = linearLayout.getContext().getResources().getDrawable(linearLayout.getContext().getResources().getIdentifier("drawable/" + argumentValue, "drawable", linearLayout.getContext().getPackageName()), linearLayout.getContext().getTheme());
                 imageView.setImageDrawable(img);
-                imageView.setPadding(0, (int)((scrHeight-img.getMinimumHeight())*-0.1),0,(int)((scrHeight-img.getMinimumHeight())*-0.1));//-0.2 y scale
+                //imageView.setPadding(0, (int)((scrHeight-img.getMinimumHeight())*-0.1),0,(int)((scrHeight-img.getMinimumHeight())*-0.1));//-0.2 y scale
             }
         }
 
@@ -200,7 +201,8 @@ public class FileHelper {
         String[] arguments = getArguments(line);
         Button button = new Button(v.getContext());
         LinearLayout linearLayout = (LinearLayout) v;
-        button.setBackground(linearLayout.getContext().getDrawable(R.drawable.button));
+        button.setBackground(ResourcesCompat.getDrawable(linearLayout.getContext().getResources(), R.drawable.button, null));
+        //button.setBackground(linearLayout.getContext().getDrawable(R.drawable.button));
         button.setTextColor(Color.WHITE);
         button.setMaxHeight(20);
 

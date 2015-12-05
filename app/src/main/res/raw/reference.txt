@@ -9,7 +9,7 @@
 <Button id=4, text=Starting Our Mod, type=page, onClick=mod_start/>
 <Button id=3, text=First Files, type=page, onClick=first_files/>
 <Button id=0, text=Assets and mcmodinfo File, type=page, onClick=assets/>
-<Button id=0, text=Reference File, type=page, onClick=reference_flie/>
+<Button id=0, text=Reference File, type=page, onClick=reference_file/>
 <Button id=0, text=Utilities and Helpers, type=page, onClick=utility_helpers/>
 
 <TextView id=10, fontSize=16/>

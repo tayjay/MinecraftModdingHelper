@@ -1,5 +1,39 @@
 <Title text=Reference File/>
 <TextView id=10, fontSize=16/>
+<h1>Reference File</h1>
+So far we have been writing all of our variable data as hard coded values. But think if we change the version of our mod, or you have a really long name that you don't 
+want to type all of the time. A reference file will solve this.<br/><br/>
+A Reference file is where you will store all of your constants that you want to access from multiple places.<br/>
+When I write my mods, I make a couple of these files.
+<h1>Making the Reference</h1>
+In your java directory, make a new folder called "reference"(or another name that you will remember like "ref" or "lib")
+ Inside that folder you will make your reference files. Make a new file called "Reference.java".
+ <br/>
+ Now to populate it. Inside the Reference Class make a constant:<br/>
+<b>public static final String MOD_ID="tutorialMod";</b><br/><br/>
+This is the same modid that we have declared in our main mod file. So lets go switch it our.
+<br/>Back in your main mod class("tutorialMod.java" for me), find everywhere that you used your mod ID
+explicitly and replace that string with "Reference.MOD_ID". Now, if you ever have to change the mod id later
+ you will only need to change it in your reference file to take effect in all your other classes.<br/>
+Now that we have our Mod ID, make 2 more for your mod name and version.
+<Button id=2, text=Show Code, type=show, onClick=52/>
+<Image id=52, src=reference_snippit/>
 
-<Button id=9000, text=Next, type=page, onClick=/>
-<Button id=9001, text=Back, type=page, onClick=/>
+<TextView id=10, fontSize=16/>
+I have also included the MOD_ID_LOWER because it is used occasionally, its a good idea to have it too.<br/><br/>
+Again, go into your main mod file and find anywhere that you reference either your mod name or version and swap them
+ out for "Reference.MOD_NAME" and "Referece.VERSION".
+ 
+<h1>Names</h1>
+Now we have a reference file set up, this will handle everything core to our mod. Next we want to centralize 
+as much as we can. In this same folder, make a new file called "Names.java". This will house the names for 
+all items, blocks, and such. I will quickly make an empty shell right now but it will get populated later. 
+<br/> Make the outer class "final" and inside the class make 2 more classes like the image below:
+<Button id=2, text=Show Code, type=show, onClick=53/>
+<Image id=53, src=name_snippit/>
+
+<TextView id=10, fontSize=16/>
+This is all that we will need for Referencing for now. Moving on we will look at utility and helper classes.
+
+<Button id=9000, text=Next, onClick=utility_helpers/>
+<Button id=9001, text=Back, type=page, onClick=assets/>
