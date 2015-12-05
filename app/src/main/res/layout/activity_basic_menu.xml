@@ -8,47 +8,72 @@
     android:background="@drawable/background"
     tools:context="com.taylar.minecraftmoddinghelper.basic_menu">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/minecraft" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Minecraft Modding Helper"
+        android:text="Modding Helper"
         android:id="@+id/textView2"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your reference for making mods."
         android:id="@+id/textView3"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Continue Learning"
+        android:background="@drawable/button"
         android:id="@+id/continue_learning"
-        android:onClick="menuClick" />
+        android:onClick="menuClick"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/white" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start Learning"
+        android:background="@drawable/button"
         android:id="@+id/start_learning"
         android:onClick="menuClick"
-        android:hint="getting_started" />
+        android:hint="getting_started"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/white" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Find Page"
+        android:background="@drawable/button"
         android:id="@+id/find_page"
-        android:onClick="menuClick" />
+        android:onClick="menuClick"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/white" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Settings"
-        android:id="@+id/settings" />
+        android:background="@drawable/button"
+        android:id="@+id/settings"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/white" />
 
     <TextView
         android:layout_width="wrap_content"

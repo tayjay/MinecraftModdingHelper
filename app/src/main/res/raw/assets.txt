@@ -1,0 +1,50 @@
+<Title text=Assets and MCModInfo/>
+
+<TextView id=0, fontSize=16/>
+<h1>Assets</h1>
+Assets are the textures, names, sounds, models and other things that your mod will need to sure.
+In your folder structure, these files are saved in our assets folder.
+From "Starting our Mod", we looked at the structure of the mod folder. From there you will see we have the assets folder with a folder named after your mod.
+Inside of there you will have more folders, we will work with the most basic:
+
+<br/>-lang
+<br/>-textures<br/>
+<br/>
+Lets start with the lang folder. In here you will place your "lang" files. These store the names of your different items and blocks in game in a way
+that allows for multiple languages to use your mod. So starting we will make a file called "en_US.lang"
+<Button id=1, text=Show File, type=show, onClick=50/>
+<Image id=50, src=lang_file/>
+<TextView id=0, fontSize=16/>
+This is an example of a lang file that I took from one of my mods.
+Note the way that the elements are named, this is the default way that Minecraft stores its name tables. But renames everything in-game.
+<br/>
+You dont need anything in this file yet, but it is good to have ready as we start working on items and blocks.
+<br/>
+<br/>
+The texture folder is where we will be saving all the graphics that we will work with.
+Inside of your textures folder; make 2 more folders:
+<br/>
+<br/>-items
+<br/>-blocks<br/>
+<br/>
+As you can guess, these will hold the textures for our items and blocks respectivly. No need you add more at this point. Now we have a base for working later.
+<h1>mcmod.info</h1>
+The mcmod.info file is where all of your mod information will be stored for the game to find. It will have your modid, mod name, mod version, minecraft version, required apis, and so on.
+<br/>
+Inside of your resources folder(The parent of assets), make a new file called "mcmod.info".
+<Button id=3, text=Show File, type=show, onClick=51/>
+<Image id=51, src=mcmodinfo_file/>
+<TextView id=0, fontSize=16/>
+This is an example of a mcmod.info file in one of my other mods.
+<br/>
+Note 1: When entering the data into this file, make sure you keep everything as it is for spacing. JSON is a very sensitive language and wont accept anything other than perfection.
+If your file isn't validating, look on google for a JSON Validator and paste your code there.
+<br/>
+Note 2: The file will only bind to your mod if the "modid" is EXACTLY the same as the one defined in your mod class. This caused me a lot of trouble at the start.
+<br/>
+Note 3: Make sure this file in in the right place. If it is anywhere else, it will not find it.
+
+<Button id=9000, text=Next, type=page/>
+<Button id=9001, text=Back, type=page, onClick=first_files/>
+
+

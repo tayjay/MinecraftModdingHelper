@@ -8,35 +8,34 @@
 <h1>Starting Out</h1>
 <Button id=4, text=Starting Our Mod, type=page, onClick=mod_start/>
 <Button id=3, text=First Files, type=page, onClick=first_files/>
-<Button id=0, text=Assets and mcmodinfo File/>
-<Button id=0, text=Reference File/>
-<Button id=0, text=Utilities and Helpers/>
+<Button id=0, text=Assets and mcmodinfo File, type=page, onClick=assets/>
+<Button id=0, text=Reference File, type=page, onClick=reference_flie/>
+<Button id=0, text=Utilities and Helpers, type=page, onClick=utility_helpers/>
 
 <TextView id=10, fontSize=16/>
 <h1>Making a real mod</h1>
-<Button id=0, text=Proxies/>
-<Button id=0, text=Making Items/>
-<Button id=0, text=Making Blocks/>
-<Button id=0, text=Registers/>
-<Button id=0, text=Items that do things/>
-<Button id=0, text=ItemStacks/>
+<Button id=0, text=Proxies, type=page, onClick=proxies/>
+<Button id=0, text=Making Items, type=page, onClick=items_basic/>
+<Button id=0, text=Making Blocks, type=page, onClick=blocks_basic/>
+<Button id=0, text=ItemStacks, type=page, onClick=itemstacks/>
+<Button id=0, text=Items that do things, type=page, onClick=items_use/>
 <Button id=0, text=NBT Data, type=page, onClick=nbt_data/>
-<Button id=0, text=Tile Entities/>
-<Button id=0, text=Events/>
-<Button id=0, text=Recipies/>
+<Button id=0, text=Tile Entities, type=page, onClick=tile_entities/>
+<Button id=0, text=Events, type=page, onClick=events/>
+<Button id=0, text=Recipies, type=page, onClick=recipies/>
 
 <TextView id=10, fontSize=16/>
 <h1>Advanced Tips</h1>
-<Button id=0, text=More On Helpers/>
-<Button id=0, text=More On NBT/>
-<Button id=0, text=Networking/Packets/>
-<Button id=0, text=Extended Properties/>
-<Button id=0, text=Mobs/>
-<Button id=0, text=Custom Renderer/>
-<Button id=0, text=Reflection/>
+<Button id=0, text=More On Helpers, type=page, onClick=helpers_more/>
+<Button id=0, text=More On NBT, type=page, onClick=nbt_more/>
+<Button id=0, text=Networking/Packets, type=page, onClick=networking/>
+<Button id=0, text=Extended Properties, type=page, onClick=extended_properties/>
+<Button id=0, text=Mobs, type=page, onClick=mobs/>
+<Button id=0, text=Custom Renderer, type=page, onClick=custom_renderer/>
+<Button id=0, text=Reflection, type=page, onClick=reflection/>
 
 <TextView id=10, fontSize=16/>
 <h1>Beyond</h1>
-<Button id=0, text=Minecraft Source code/>
-<Button id=0, text=Github/>
-<Button id=0, text=More Tutorials/>
+<Button id=0, text=Minecraft Source code, type=page, onClick=mc_source/>
+<Button id=0, text=Github, type=page, onClick=github/>
+<Button id=0, text=More Tutorials, type=page, onClick=more/>

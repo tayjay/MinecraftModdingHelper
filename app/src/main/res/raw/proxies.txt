@@ -1,0 +1,5 @@
+<Title text=Proxies/>
+<TextView id=10, fontSize=16/>
+
+<Button id=9000, text=Next, type=page, onClick=/>
+<Button id=9001, text=Back, type=page, onClick=/>

@@ -150,6 +150,11 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void closeClick(View v)
+    {
+        finish();
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.verticalLayout);

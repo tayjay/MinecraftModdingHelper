@@ -9,7 +9,6 @@ First, You will need to make your base mod file. In your IDE. Go to your main/ja
 This is where your java files will go. In this folder, make a new java file named after your Mod's name.
 For mine I will call it "TutorialMod.java". 
 Now you have your first file in your mod.
-<Button id=4, text=Show Image, type=show, onClick=5/>
-<Image id=5, src=non/>
-<Button id=9000, text=Next/>
+
+<Button id=9000, text=Next, type=page, onClick=assets/>
 <Button id=9001, text=Back, type=page, onClick=mod_start/>

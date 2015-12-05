@@ -8,5 +8,18 @@ tag, give it the tag "coins", and store the int into it. Later you will be able 
 <h1>Using NBT</h1>
 Working with NBT can take up a lot of space in your methods, so we will make a helper class to store all of the functions we want to preform.
 We will call it "NBTHelper.java". In our java source folder. Make a new folder inside called "util". Inside there make the NBTHelper.java file.
+<br/><br/>
+This is a text tutorial from Minecraft Forge on working with NBT data. As well as Pahimar's tutorial on the subject.
+<Button id=1, text=Forge Wiki NBT, type=web, onClick=http://www.minecraftforge.net/wiki/How_to_use_NBT_Tag_Compound/>
+<Button id=2, text=Pahimar NBT, type=web, onClick=https://www.youtube.com/watch?v=l4rqJibM17k&index=13&list=PLQPiZYWovwmnZlgvbHCbz6TefIgeEiVcj/>
+<TextView id=0, fontSize=16/>
+<br/>
+NBT will allow you to store many types of data: int,double,long,byte,boolean,float,String,ItemStack. Note that there is no way of storing arrays, more on that in "More on Helpers".<br/>
+NBT is broken into NBT Tags and NBT Tag Compounds. An NBT Tag holds one value, while a NBT Tag Compound stores many NBT Tags together. When saving an NBT Tag you must save it to one that is already created,
+or make a new one to store to.
+<h1>Making a Tag</h1>
+To create NBT Tags there you will have to work with the NBTTagCompound Class. the tags have their own methods to add data. But to simplify things,
+
+
 <Button id=9000, text=Next/>
 <Button id=9001, text=Back/>

@@ -1,4 +1,4 @@
-<Title text=Strating Mod/>
+<Title text=Starting Mod/>
 <TextView id=30, fontSize=16/>
 <h1>File Structure</h1>
 <p>
